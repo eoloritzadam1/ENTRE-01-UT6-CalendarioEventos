@@ -2,9 +2,12 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.DayOfWeek;
 
 /**
  * Representa a un evento del calendario
+ * 
+ * @author - Elorri Oloritz
  * 
  */
 public class Evento {
@@ -24,10 +27,19 @@ public class Evento {
      */                 
     public Evento(String nombre, String fecha, String horaInicio,
     String horaFin) {
-         
+        String[] partes = nombre.split("\\s+");
+        String nombreFormat = "";
+        for (int i = 0; i < partes.length; i++){
+            if (partes[i].length() != 0){
+                nombreFormat += partes[i].substring(0,1).toUpperCase();
+                nombreFormat += partes[i].substring(1).toLowerCase() + " ";
+            }
+        }
+        this.nombre = nombreFormat;
+        this.fecha = LocalDate.parse(fecha, formateadorFecha);
+        this.horaInicio = LocalTime.parse(horaInicio, formateadorHora);
+        this.horaFin = LocalTime.parse(horaFin, formateadorHora);
     }
-
-   
 
     /**
      * accesor para el nombre del evento
@@ -90,7 +102,8 @@ public class Evento {
      * que se obtendrá a partir de la fecha del evento
      */
     public int getDia() {
-        return 0;
+        DayOfWeek dia = fecha.getDayOfWeek();
+        return dia.getValue();
     }
 
     /**
@@ -98,15 +111,17 @@ public class Evento {
      * que se obtendrá a partir de la fecha del evento
      */
     public Mes getMes() {
-        return null;
+        Mes[] meses = Mes.values();
+        return meses[fecha.getMonthValue() - 1];
     }
 
     /**
      * calcula y devuelve la duración del evento en minutos
      */
     public int getDuracion() {
-        return 0;
-
+        int minInicio = horaInicio.getHour() * 60 + horaInicio.getMinute();
+        int minFinal = horaFin.getHour() * 60 + horaFin.getMinute();
+        return minFinal - minInicio;
     }
 
     /**
@@ -117,11 +132,11 @@ public class Evento {
      * Pista! usa un objeto LocalDateTime
      */
     public boolean antesDe(Evento otro) {
-        return true;
-
+        LocalDateTime actual = LocalDateTime.of(fecha, horaInicio);
+        LocalDateTime nuevo = LocalDateTime.of(otro.getFecha(), otro.getHoraInicio());
+        return actual.isBefore(nuevo);
     }
 
-  
     /**
      * representación textual del evento  
      */
