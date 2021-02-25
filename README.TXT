@@ -4,9 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-TITULO PROYECTO:
+TITULO PROYECTO: ENTRE-01-UT6-CalendarioEventos
 PROPÓSITO DEL PROYECTO:
 VERSION o FECHA:
 CÓMO INICIAR EL PROYECTO:
-AUTOR/ES:
+AUTOR/ES: Elorri Oloritz
 INSTRUCCIONES USUARIO:
