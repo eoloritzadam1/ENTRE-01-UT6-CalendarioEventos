@@ -1,6 +1,6 @@
+package programacion.entregaut6.modelo;
 
 /**
- * Enumeration class Mes - write a description of the enum class here
  * 
  * @author - Elorri Oloritz
  * 

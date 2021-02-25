@@ -1,3 +1,8 @@
+package programacion.entregaut6.interfaz;
+import programacion.entregaut6.modelo.CalendarioEventos;
+import programacion.entregaut6.modelo.Mes;
+import programacion.entregaut6.io.CalendarioIO;
+
 import java.util.Scanner;
 
 public class IUConsola {

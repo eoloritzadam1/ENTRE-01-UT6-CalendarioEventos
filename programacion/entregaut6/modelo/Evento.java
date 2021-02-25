@@ -1,3 +1,5 @@
+package programacion.entregaut6.modelo;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -36,9 +38,9 @@ public class Evento {
             }
         }
         this.nombre = nombreFormat;
-        this.fecha = LocalDate.parse(fecha, formateadorFecha);
-        this.horaInicio = LocalTime.parse(horaInicio, formateadorHora);
-        this.horaFin = LocalTime.parse(horaFin, formateadorHora);
+        this.fecha = LocalDate.parse(fecha.trim(), formateadorFecha);
+        this.horaInicio = LocalTime.parse(horaInicio.trim(), formateadorHora);
+        this.horaFin = LocalTime.parse(horaFin.trim(), formateadorHora);
     }
 
     /**

@@ -1,3 +1,7 @@
+package programacion.entregaut6.io;
+
+import programacion.entregaut6.modelo.Evento;
+import programacion.entregaut6.modelo.CalendarioEventos;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
